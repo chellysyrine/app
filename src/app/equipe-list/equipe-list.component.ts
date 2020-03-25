@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Equipe } from 'src/app/equipe';
 import { EquipeService } from 'src/app/equipe.service';
 import { Router } from '@angular/router';
+import { error } from '@angular/compiler/src/util';
+import{Equipes}from 'src/app/equipes'
 
 @Component({
   selector: 'app-equipe',
@@ -11,7 +13,8 @@ import { Router } from '@angular/router';
 })
 export class EquipeListComponent implements OnInit {
 
-  equipes:Observable<Equipe[]>;
+  equipes:any ;
+  
 
   constructor(private equipeservice:EquipeService, private router:Router) { }
 
@@ -20,7 +23,12 @@ export class EquipeListComponent implements OnInit {
 
   }
   reloadData(){
-    this.equipes=this.equipeservice.getEquipes();
+    this.equipeservice.getEquipes().subscribe((data:Equipes )=>{
+      this.equipes=data;
+    console.log(this.equipes);},
+  error=>{
+    console.log(error);
+  });
 }
 deleteEquipe(id : number){
   this.equipeservice.deleteEquipe(id).subscribe(

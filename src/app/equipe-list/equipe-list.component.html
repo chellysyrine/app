@@ -12,11 +12,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let equipe of equipes | async">
+          <tr *ngFor="let equipe of equipes.content   ">
             <td>{{equipe.id}}</td>
             <td>{{equipe.description}}</td>
             <td>{{equipe.pays}}</td>
-            <td><button (click)="deleteEquipe(equipe.id)" class="btn btn-danger">Delete</button>
+            <td><button (click)="deleteEquipe(equipe?.id)" class="btn btn-danger">Delete</button>
             </td>
           </tr>
         </tbody>

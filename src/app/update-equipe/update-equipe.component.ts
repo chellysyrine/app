@@ -17,7 +17,7 @@ export class UpdateEquipeComponent implements OnInit {
     private equipeService: EquipeService) { }
 
   ngOnInit() {
-    this.equipe = new Equipe();
+   /* this.equipe = new Equipe();
 
     this.id = this.route.snapshot.params['id'];
     
@@ -25,7 +25,7 @@ export class UpdateEquipeComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.equipe = data;
-      }, error => console.log(error));
+      }, error => console.log(error));*/
   }
 
   updateequipe() {
